@@ -1,0 +1,1380 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#075b46">
+<meta name="description" content="ميلو للشاشات - مركز تنزيل تطبيقات وملفات Android TV وGoogle TV">
+<title>ميلو للشاشات | MILO TV</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --green: #075b46;
+  --green-light: #0b7458;
+  --dark: #103e32;
+  --background: #f4f7f5;
+  --border: #e0e9e3;
+  --muted: #738078;
+  --white: #fff;
+  --gold: #c4a15b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 95px;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--dark);
+  font-family: 'Tajawal', Arial, sans-serif;
+  line-height: 1.7;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+button, a, input, select {
+  outline-offset: 4px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--gold);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: min(1120px, 92%);
+  margin: auto;
+}
+
+/* Header */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffffed;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 46px;
+  height: 46px;
+  background: var(--green);
+  color: white;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.brand h2 {
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.brand small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-links a {
+  padding: 10px 13px;
+  border-radius: 10px;
+  color: #53665b;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  background: #edf5f0;
+  color: var(--green);
+}
+
+.menu-button {
+  display: none;
+  background: white;
+  color: var(--green);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 9px 12px;
+}
+
+/* Main */
+
+main {
+  padding: 30px 0 60px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 35px;
+  align-items: center;
+  background: linear-gradient(130deg, #fff, #eaf4ed);
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  padding: clamp(25px, 5vw, 55px);
+  overflow: hidden;
+  box-shadow: 0 15px 45px #103e3208;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #e6f3eb;
+  color: var(--green);
+  padding: 7px 13px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  background: #16815c;
+  border-radius: 50%;
+}
+
+.hero h1 {
+  font-size: clamp(34px, 5vw, 55px);
+  line-height: 1.3;
+  margin: 20px 0 13px;
+  letter-spacing: -.5px;
+}
+
+.hero h1 span {
+  color: var(--green-light);
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 2;
+  max-width: 550px;
+  margin: 0 0 23px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 13px 19px;
+  min-height: 47px;
+  font-weight: 800;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--green);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #064634;
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--green);
+  border-color: var(--border);
+}
+
+.btn-disabled {
+  background: #eef1ee;
+  color: #78847d;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* TV illustration */
+
+.hero-visual {
+  min-height: 280px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.television {
+  width: min(100%, 360px);
+  aspect-ratio: 1.35 / 1;
+  background: #122720;
+  border: 7px solid #263b32;
+  border-radius: 18px;
+  padding: 8px;
+  box-shadow: 0 25px 45px #103e3228;
+  position: relative;
+}
+
+.tv-screen {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0b7458, #063a2e);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.tv-screen::before,
+.tv-screen::after {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border: 1px solid #ffffff20;
+  border-radius: 50%;
+}
+
+.tv-screen::after {
+  width: 165px;
+  height: 165px;
+}
+
+.tv-logo {
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  background: #ffffff18;
+  border: 1px solid #ffffff50;
+  display: grid;
+  place-items: center;
+  font-size: 35px;
+  font-weight: 800;
+  z-index: 1;
+}
+
+.tv-screen strong {
+  font-size: 23px;
+  margin-top: 10px;
+  z-index: 1;
+}
+
+.tv-screen small {
+  font-size: 10px;
+  color: #d8e9df;
+  letter-spacing: 2px;
+  z-index: 1;
+}
+
+.tv-stand {
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 50px);
+  width: 100px;
+  height: 15px;
+  background: #263b32;
+  clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+}
+
+.visual-label {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 10px 14px;
+  box-shadow: 0 10px 30px #103e3210;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* Feature cards */
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 18px 0 38px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 16px;
+}
+
+.feature-icon {
+  width: 43px;
+  height: 43px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: #edf5f0;
+  color: var(--green);
+  font-size: 19px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.feature strong {
+  display: block;
+  font-size: 15px;
+}
+
+.feature small {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Sections */
+
+.section {
+  margin-top: 38px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  font-size: clamp(22px, 3vw, 29px);
+  margin: 0;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 5px 0 0;
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 17px;
+}
+
+.search-bar input,
+.search-bar select {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  min-height: 46px;
+  color: var(--dark);
+  font-size: 16px;
+}
+
+.search-bar input {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-bar select {
+  max-width: 200px;
+}
+
+/* Download cards */
+
+.files-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.file-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  transition: .2s;
+}
+
+.file-card:hover,
+.file-card:focus-within {
+  border-color: #a4c5b4;
+  transform: translateY(-2px);
+}
+
+.file-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.file-icon {
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  background: #eaf4ee;
+  color: var(--green);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.file-icon.system {
+  background: #edf0fa;
+  color: #485b9b;
+}
+
+.file-icon.guide {
+  background: #fbf2df;
+  color: #8a6a2c;
+}
+
+.file-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.file-title h3 {
+  font-size: 18px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.file-title small {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.status {
+  background: #e8f4ed;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 5px 8px;
+  border-radius: 7px;
+  white-space: nowrap;
+}
+
+.status.pending {
+  background: #fff4df;
+  color: #886525;
+}
+
+.file-card > p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+  margin: 0 0 15px;
+}
+
+.file-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: auto;
+  margin-bottom: 15px;
+}
+
+.file-meta div {
+  background: #f7f9f7;
+  border-radius: 9px;
+  padding: 9px 10px;
+  min-width: 0;
+}
+
+.file-meta small {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.file-meta strong {
+  display: block;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.file-card .btn {
+  width: 100%;
+  font-size: 14px;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  background: white;
+  border: 1px dashed #b8c9bf;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* Installation */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.step {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.step-number {
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  background: var(--green);
+  color: white;
+  border-radius: 10px;
+  font-weight: 800;
+  margin-bottom: 13px;
+}
+
+.step h3 {
+  font-size: 16px;
+  margin: 0 0 7px;
+}
+
+.step p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+  margin: 0;
+}
+
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #fff9ea;
+  border: 1px solid #efe1bb;
+  color: #715c2e;
+  padding: 17px;
+  border-radius: 15px;
+  font-size: 13px;
+  line-height: 1.9;
+  margin-top: 15px;
+}
+
+.notice strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+/* Compatibility */
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: white;
+}
+
+.compatibility {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 470px;
+}
+
+.compatibility th,
+.compatibility td {
+  text-align: right;
+  padding: 13px 15px;
+  border-bottom: 1px solid var(--border);
+}
+
+.compatibility th {
+  background: #edf5f0;
+  color: var(--green);
+}
+
+.compatibility td:last-child {
+  color: var(--muted);
+}
+
+.compatibility tr:last-child td {
+  border-bottom: none;
+}
+
+.about-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 22px;
+  color: var(--muted);
+  line-height: 2;
+  font-size: 14px;
+}
+
+/* Footer */
+
+footer {
+  background: white;
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.footer-brand {
+  color: var(--dark);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+footer p {
+  margin: 5px 0 0;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  opacity: 0;
+  pointer-events: none;
+  background: var(--dark);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 12px;
+  z-index: 200;
+  box-shadow: 0 12px 35px #0002;
+  transition: .2s;
+  font-size: 14px;
+  max-width: 90%;
+  text-align: center;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* Responsive */
+
+@media (max-width: 850px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    min-height: 240px;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .files-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 76px;
+    left: 4%;
+    right: 4%;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 9px;
+    box-shadow: 0 12px 30px #103e3210;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .menu-button {
+    display: block;
+  }
+}
+
+@media (max-width: 560px) {
+  main {
+    padding-top: 17px;
+  }
+
+  .hero {
+    padding: 23px 19px;
+    border-radius: 20px;
+    gap: 18px;
+  }
+
+  .hero h1 {
+    font-size: 35px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .hero-visual {
+    min-height: 205px;
+  }
+
+  .television {
+    width: 82%;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .feature {
+    padding: 12px;
+  }
+
+  .files-grid,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .file-card {
+    padding: 18px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .search-bar select {
+    max-width: none;
+    width: 100%;
+  }
+
+  .footer-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="ميلو للشاشات - الرئيسية">
+      <span class="logo">M</span>
+      <span>
+        <h2>ميلو للشاشات</h2>
+        <small>MILO TV · DOWNLOAD CENTER</small>
+      </span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="القائمة الرئيسية">
+      <a href="#files">الملفات</a>
+      <a href="#install">طريقة التثبيت</a>
+      <a href="#compatibility">التوافق</a>
+      <a href="#about">عن المنصة</a>
+    </nav>
+
+    <button class="menu-button" id="menuButton"
+      aria-expanded="false" aria-controls="navLinks">
+      القائمة ☰
+    </button>
+  </div>
+</header>
+
+<main class="container" id="home">
+
+  <section class="hero">
+    <div>
+      <span class="badge">
+        <span class="badge-dot"></span>
+        مركز تنزيل ميلو
+      </span>
+
+      <h1>
+        ميلو للشاشات،<br>
+        <span>تجربة أذكى.</span>
+      </h1>
+
+      <p>
+        منصتك العربية لتنزيل تطبيقات وملفات الشاشات الذكية.
+        تصفّح الملفات، اعرف تفاصيلها، وتحقق من التوافق
+        قبل التثبيت.
+      </p>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="#files">
+          استعراض الملفات <span aria-hidden="true">←</span>
+        </a>
+
+        <a class="btn btn-secondary" href="#install">
+          دليل التثبيت
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-label="شاشة تعرض شعار ميلو">
+      <div class="television">
+        <div class="tv-screen">
+          <div class="tv-logo">M</div>
+          <strong>ميلو</strong>
+          <small>MILO TV</small>
+        </div>
+        <div class="tv-stand"></div>
+      </div>
+
+      <div class="visual-label">
+        ✓ واجهة مناسبة للريموت
+      </div>
+    </div>
+  </section>
+
+  <section class="features" aria-label="مميزات المنصة">
+    <div class="feature">
+      <div class="feature-icon">↓</div>
+      <div>
+        <strong>تحميل الملفات</strong>
+        <small>روابط مباشرة بعد إضافتها</small>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">TV</div>
+      <div>
+        <strong>للشاشات الذكية</strong>
+        <small>Android TV وGoogle TV</small>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">✓</div>
+      <div>
+        <strong>معلومات واضحة</strong>
+        <small>الإصدار والتوافق والحجم</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- الملفات -->
+
+  <section class="section" id="files">
+    <div class="section-heading">
+      <div>
+        <h2>ملفات ميلو</h2>
+        <p>ابحث عن التطبيق أو ملف النظام الذي تحتاجه.</p>
+      </div>
+    </div>
+
+    <div class="search-bar">
+      <input id="searchInput"
+        type="search"
+        placeholder="ابحث عن اسم الملف أو الإصدار..."
+        aria-label="البحث عن الملفات"
+        autocomplete="off">
+
+      <select id="typeFilter" aria-label="تصفية نوع الملف">
+        <option value="all">كل الأنواع</option>
+        <option value="apk">تطبيقات APK</option>
+        <option value="system">ملفات النظام</option>
+        <option value="guide">أدلة التثبيت</option>
+      </select>
+    </div>
+
+    <div class="files-grid" id="filesGrid">
+
+      <!-- بطاقة تطبيق APK -->
+      <article class="file-card"
+        data-type="apk"
+        data-search="milo tv apk تطبيق ميلو للشاشات">
+
+        <div class="file-top">
+          <div class="file-icon">APK</div>
+          <div class="file-title">
+            <h3>تطبيق ميلو للشاشات</h3>
+            <small>تطبيق أندرويد · APK</small>
+          </div>
+          <span class="status pending">غير منشور</span>
+        </div>
+
+        <p>
+          أضف ملف تطبيق ميلو المتوافق مع الشاشات، ثم اربط زر
+          التنزيل بملف APK الحقيقي.
+        </p>
+
+        <div class="file-meta">
+          <div>
+            <small>الإصدار</small>
+            <strong>غير محدد</strong>
+          </div>
+          <div>
+            <small>النظام</small>
+            <strong>Android</strong>
+          </div>
+          <div>
+            <small>الحجم</small>
+            <strong>غير محدد</strong>
+          </div>
+          <div>
+            <small>التوافق</small>
+            <strong>بحاجة للتحقق</strong>
+          </div>
+        </div>
+
+        <a class="btn btn-primary"
+   href="app-debug.apk"
+   download="app-debug.apk">
+  تحميل تطبيق ميلو
+</a>
+      </article>
+
+      <!-- بطاقة ملفات النظام -->
+      <article class="file-card"
+        data-type="system"
+        data-search="milo os firmware system image نظام ميلو">
+
+        <div class="file-top">
+          <div class="file-icon system">OS</div>
+          <div class="file-title">
+            <h3>نظام ميلو</h3>
+            <small>Firmware / System Image</small>
+          </div>
+          <span class="status pending">قيد الإعداد</span>
+        </div>
+
+        <p>
+          مساحة مخصصة لملفات النظام بعد إعدادها والتحقق من
+          توافقها مع طراز الجهاز المستهدف.
+        </p>
+
+        <div class="file-meta">
+          <div>
+            <small>الإصدار</small>
+            <strong>غير منشور</strong>
+          </div>
+          <div>
+            <small>الجهاز</small>
+            <strong>يحدد لاحقًا</strong>
+          </div>
+          <div>
+            <small>الحجم</small>
+            <strong>غير محدد</strong>
+          </div>
+          <div>
+            <small>الحالة</small>
+            <strong>غير متاح</strong>
+          </div>
+        </div>
+
+        <button class="btn btn-disabled" type="button" data-placeholder>
+          لا يوجد ملف نظام منشور
+        </button>
+      </article>
+
+      <!-- بطاقة دليل التثبيت -->
+      <article class="file-card"
+        data-type="guide"
+        data-search="guide installation instructions دليل التثبيت">
+
+        <div class="file-top">
+          <div class="file-icon guide">INFO</div>
+          <div class="file-title">
+            <h3>دليل التثبيت</h3>
+            <small>إرشادات قبل البدء</small>
+          </div>
+          <span class="status">دليل</span>
+        </div>
+
+        <p>
+          تعرّف على الفرق بين تطبيق APK وملفات النظام،
+          وكيف تتحقق من طراز جهازك قبل التنزيل.
+        </p>
+
+        <div class="file-meta">
+          <div>
+            <small>النوع</small>
+            <strong>دليل إرشادي</strong>
+          </div>
+          <div>
+            <small>اللغة</small>
+            <strong>العربية</strong>
+          </div>
+        </div>
+
+        <a class="btn btn-secondary" href="#install">
+          قراءة الدليل
+        </a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- طريقة التثبيت -->
+
+  <section class="section" id="install">
+    <div class="section-heading">
+      <div>
+        <h2>طريقة الاستخدام</h2>
+        <p>خطوات عامة قبل تثبيت أي ملف على الشاشة.</p>
+      </div>
+    </div>
+
+    <div class="steps">
+      <article class="step">
+        <div class="step-number">١</div>
+        <h3>تحقق من جهازك</h3>
+        <p>
+          اعرف الشركة المصنعة والطراز الدقيق وإصدار Android
+          قبل اختيار الملف.
+        </p>
+      </article>
+
+      <article class="step">
+        <div class="step-number">٢</div>
+        <h3>راجع معلومات الملف</h3>
+        <p>
+          تحقق من الإصدار والمعمارية ومتطلبات النظام ومصدر
+          الملف قبل تنزيله.
+        </p>
+      </article>
+
+      <article class="step">
+        <div class="step-number">٣</div>
+        <h3>اتبع التعليمات المناسبة</h3>
+        <p>
+          تثبيت APK يختلف عن تثبيت نظام كامل. لا تستخدم ملف
+          نظام مخصصًا لطراز آخر.
+        </p>
+      </article>
+    </div>
+
+    <div class="notice">
+      <span aria-hidden="true">ⓘ</span>
+      <div>
+        <strong>تنبيه مهم بشأن ملفات النظام</strong>
+        أجهزة Android TV وGoogle TV ليست كلها متوافقة مع
+        بعضها. ملف النظام الخاطئ قد يعطل الجهاز. لا تنشر
+        ملفات Firmware إلا بعد التحقق من الطراز الدقيق
+        ومصدر الملف وتعليماته.
+      </div>
+    </div>
+  </section>
+
+  <!-- التوافق -->
+
+  <section class="section" id="compatibility">
+    <div class="section-heading">
+      <div>
+        <h2>التوافق</h2>
+        <p>معلومات عامة وليست ضمانًا لتوافق ملف بعينه.</p>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="compatibility">
+        <thead>
+          <tr>
+            <th>نوع الجهاز</th>
+            <th>تطبيق APK</th>
+            <th>ملف النظام</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Android TV</td>
+            <td>بحسب دعم التطبيق</td>
+            <td>ملف خاص بالطراز</td>
+          </tr>
+
+          <tr>
+            <td>Google TV</td>
+            <td>بحسب دعم التطبيق</td>
+            <td>ملف خاص بالطراز</td>
+          </tr>
+
+          <tr>
+            <td>TV Box</td>
+            <td>بحسب المعمارية وإصدار Android</td>
+            <td>تحقق من اللوحة والطراز</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- عن الموقع -->
+
+  <section class="section" id="about">
+    <div class="section-heading">
+      <div>
+        <h2>عن ميلو</h2>
+        <p>مركز تنزيل عربي بواجهة رسمية وسهلة الاستخدام.</p>
+      </div>
+    </div>
+
+    <div class="about-card">
+      ميلو للشاشات هو موقع ثابت لتنظيم روابط تطبيقات أندرويد
+      وملفات النظام وأدلتها. يعمل دون تسجيل دخول أو قاعدة
+      بيانات، ويدعم الجوال والكمبيوتر والتنقل بالريموت.
+      الموقع لا ينشئ نظام تشغيل تلقائيًا ولا يتحقق من سلامة
+      الملفات من تلقاء نفسه؛ يجب توفير الملفات الحقيقية
+      وروابطها ومعلومات توافقها قبل نشرها.
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-brand">ميلو للشاشات · MILO TV</div>
+      <p>تحقق من مصدر الملفات وتوافقها قبل التثبيت.</p>
+    </div>
+
+    <div>
+      © <span id="year"></span> ميلو
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  "use strict";
+
+  const menuButton = document.getElementById("menuButton");
+  const navLinks = document.getElementById("navLinks");
+  const searchInput = document.getElementById("searchInput");
+  const typeFilter = document.getElementById("typeFilter");
+  const filesGrid = document.getElementById("filesGrid");
+  const cards = [...filesGrid.querySelectorAll(".file-card")];
+  const toast = document.getElementById("toast");
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+  // قائمة الجوال
+  menuButton.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("open");
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  // البحث والتصفية
+  function filterFiles() {
+    const query = searchInput.value.trim().toLocaleLowerCase("ar");
+    const type = typeFilter.value;
+    let count = 0;
+
+    cards.forEach(card => {
+      const text = (
+        card.dataset.search + " " + card.innerText
+      ).toLocaleLowerCase("ar");
+
+      const matchesText = text.includes(query);
+      const matchesType = type === "all" || card.dataset.type === type;
+      const visible = matchesText && matchesType;
+
+      card.hidden = !visible;
+
+      if (visible) count++;
+    });
+
+    let empty = document.getElementById("emptyState");
+
+    if (count === 0) {
+      if (!empty) {
+        empty = document.createElement("div");
+        empty.id = "emptyState";
+        empty.className = "empty-state";
+        empty.textContent = "لا توجد ملفات تطابق البحث.";
+        filesGrid.appendChild(empty);
+      }
+    } else if (empty) {
+      empty.remove();
+    }
+  }
+
+  searchInput.addEventListener("input", filterFiles);
+  typeFilter.addEventListener("change", filterFiles);
+
+  // توضيح حالة الملفات التي لم تتم إضافة روابطها
+  let toastTimer;
+
+  document.querySelectorAll("[data-placeholder]").forEach(button => {
+    button.addEventListener("click", () => {
+      toast.textContent =
+        "لم تتم إضافة رابط تنزيل حقيقي لهذا الملف بعد.";
+
+      toast.classList.add("show");
+
+      clearTimeout(toastTimer);
+
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    });
+  });
+
+  // تحسين التنقل بالأسهم للأجهزة التي تستخدم لوحة مفاتيح أو ريموت.
+  // يعتمد السلوك على إرسال الجهاز لأسهم لوحة المفاتيح.
+  document.addEventListener("keydown", event => {
+    const keys = [
+      "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"
+    ];
+
+    if (!keys.includes(event.key)) return;
+
+    const active = document.activeElement;
+
+    if (
+      active &&
+      ["INPUT", "SELECT", "TEXTAREA"].includes(active.tagName)
+    ) return;
+
+    const focusable = [
+      ...document.querySelectorAll(
+        'a[href], button:not(:disabled), input, select'
+      )
+    ].filter(element => {
+      return (
+        !element.closest("[hidden]") &&
+        element.getClientRects().length > 0
+      );
+    });
+
+    const currentIndex = focusable.indexOf(active);
+
+    if (currentIndex < 0) return;
+
+    let nextIndex = currentIndex;
+
+    if (
+      event.key === "ArrowDown" ||
+      event.key === "ArrowLeft"
+    ) {
+      nextIndex = Math.min(currentIndex + 1, focusable.length - 1);
+    }
+
+    if (
+      event.key === "ArrowUp" ||
+      event.key === "ArrowRight"
+    ) {
+      nextIndex = Math.max(currentIndex - 1, 0);
+    }
+
+    if (nextIndex !== currentIndex) {
+      event.preventDefault();
+      focusable[nextIndex].focus();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
